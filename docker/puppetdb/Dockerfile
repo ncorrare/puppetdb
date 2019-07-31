@@ -7,6 +7,7 @@ COPY resources/puppetlabs/puppetdb/bootstrap.cfg \
      /app/resources/puppetlabs/puppetdb/bootstrap.cfg
 RUN lein with-profile uberjar deps
 # Build uberjar -- see .dockerignore
+COPY qemu-arm-static /usr/bin
 COPY . /app
 RUN lein with-profile uberjar uberjar
 
